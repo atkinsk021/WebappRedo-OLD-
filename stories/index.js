@@ -6,6 +6,7 @@ import FilterControls from '../src/components/filterControls/'
 import Bookmark from '../src/components/bookmark/'
 import BookmarkList from '../src/components/bookmarkList/'
 import BookmarkForm from '../src/components/bookmarkForm/';
+import { action } from '@storybook/addon-actions';
 
 
 const sample = {
@@ -23,7 +24,7 @@ storiesOf("Bookmark Vault/Bookmark List", module).add("default", () => {
 });
 
 storiesOf("Bookmark Vault/Bookmark", module).add("default", () => ( 
-  <Bookmark bookmark={sample}/>
+  <Bookmark bookmark={sample} deleteHandler={action('Delete confirmed') }/>
 ));      
 
 storiesOf("Bookmark Vault/Header", module).add("default", () => (
@@ -31,5 +32,5 @@ storiesOf("Bookmark Vault/Header", module).add("default", () => (
 ));     
 
 storiesOf("Bookmark Vault/Filter Controls", module).add("default", () => (
-  <FilterControls />
+    <FilterControls onUserInput={action('Search criteria changes') }/>
 )); 
