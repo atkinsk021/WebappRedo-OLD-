@@ -33,6 +33,11 @@ class Bookmark extends Component {
     };
     handleTitleChange = e => this.setState({ title: e.target.value });
     handleLinkChange = e => this.setState({ link: e.target.value });
+    handleDelete = () =>  this.setState({ status : 'del'} );
+    handleConfirm = (e) => {
+    e.preventDefault();
+    this.props.deleteHandler(this.state.link);
+    };
 
   render() {
     let activeButtons = buttons.normal;
@@ -44,6 +49,11 @@ class Bookmark extends Component {
       activeButtons = buttons.edit;
       leftButtonHandler = this.handleSave;
       rightButtonHandler = this.handleCancel;
+    } else if (this.state.status === 'del' ) {
+        cardColor = "bg-warning";
+        activeButtons = buttons.delete;
+        leftButtonHandler = this.handleCancel;
+        rightButtonHandler = this.handleConfirm;
     }
 
     return (

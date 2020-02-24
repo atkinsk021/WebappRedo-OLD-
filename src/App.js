@@ -8,6 +8,10 @@ import api from "./dataStore/stubAPI"; // NEW
 class App extends Component {
   state = { search: "", visits: "all" };
 
+  deleteBookmark = (key) => {
+    api.delete(key); 
+    this.setState({});                          
+  };
 
   render() {
     const sample = {
@@ -24,7 +28,8 @@ class App extends Component {
         <Header noBookmarks={bookmarks.length} />
         <BookmarkForm />
         <FilterControls />
-        <BookmarkList bookmarks={bookmarks} />
+        <BookmarkList bookmarks={bookmarks} 
+          deleteHandler={this.deleteBookmark} />
       </div>
     );
   }
