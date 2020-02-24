@@ -4,6 +4,7 @@ import '../node_modules/bootstrap/dist/css/bootstrap.css';
 import Header from '../src/components/header/'
 import FilterControls from '../src/components/filterControls/'
 import Bookmark from '../src/components/bookmark/'
+import BookmarkList from '../src/components/bookmarkList/'
 
 const sample = {
     title: 'Google',
@@ -11,6 +12,11 @@ const sample = {
     visits: '112',
     picture: {thumbnail: './sample.png'}
 }
+
+storiesOf("Bookmark Vault/Bookmark List", module).add("default", () => { 
+    const samples = [sample, sample, sample, sample, sample]
+    return <BookmarkList bookmarks={samples}/>
+});
 
 storiesOf("Bookmark Vault/Bookmark", module).add("default", () => ( 
   <Bookmark bookmark={sample}/>
