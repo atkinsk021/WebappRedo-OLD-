@@ -1,10 +1,51 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 import "./bookmark.css";
 import "../../fontawesome";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import buttons from "../../config/buttonsConfig";
+import api from '../../dataStore/stubAPI'
 
 class Bookmark extends Component {
+    state = {
+        status: "",
+        title: this.props.bookmark.title,
+        link: this.props.bookmark.link,
+        previousDetails: {
+        title: this.props.bookmark.title,
+        link: this.props.bookmark.link
+        }
+    };
+    handleEdit = () => this.setState({ status: "edit" });
+    handleSave = e => {
+        e.preventDefault();
+        let updatedTitle = this.state.title.trim();
+        let updatedLink = this.state.link.trim();
+        if (!updatedTitle || !updatedLink) {
+        return;
+        }
+        let { title, link } = this.state;
+        this.setState({ status: "", previousDetails: { title, link } });
+        api.update(this.state.previousDetails.link, updatedTitle, updatedLink);
+    };                            
+    handleCancel = () => {
+      let { title, link } = this.state.previousDetails;
+      this.setState({ status: "", title, link });
+    };
+    handleTitleChange = e => this.setState({ title: e.target.value });
+    handleLinkChange = e => this.setState({ link: e.target.value });
+
   render() {
+    let activeButtons = buttons.normal;
+    let leftButtonHandler = this.handleEdit;
+    let rightButtonHandler = this.handleDelete;
+    let cardColor = "bg-white";
+    if (this.state.status === "edit") {
+      cardColor = "bg-primary";
+      activeButtons = buttons.edit;
+      leftButtonHandler = this.handleSave;
+      rightButtonHandler = this.handleCancel;
+    }
+
     return (
       <div className="col-sm-3">
         <div className="card">
@@ -14,11 +55,31 @@ class Bookmark extends Component {
             src={this.props.bookmark.picture.thumbnail}
           />
           <div className="card-body">
-          
             <h2 className="card-title">
             <FontAwesomeIcon icon={["fas", "bookmark"]} />  
             <span> {this.props.bookmark.title}</span>
             </h2>
+            {this.state.status === "edit" ? (
+              <Fragment>
+                <p>
+                  <input
+                    type="text"
+                    className="form-control"
+                    value={this.state.email}
+                    onChange={this.handleEmailChange}
+                  />
+                </p>
+                <p>
+                  <input
+                    type="text"
+                    className="form-control"
+                    value={this.state.phone}
+                    onChange={this.handlePhoneChange}
+                  />
+                </p>
+              </Fragment>
+            ) : (
+            <Fragment>
             <p className="card-link" key="link">
               <FontAwesomeIcon icon={["fas", "angle-right"]} />
               <span> {this.props.bookmark.link}</span>
@@ -27,21 +88,28 @@ class Bookmark extends Component {
               <FontAwesomeIcon icon={["fas", "eye"]} />
               <span> {this.props.bookmark.visits} </span>
             </h5>
+            </Fragment>
+            )}
           </div>
           <div className="card-footer">
             <div
               className="btn-group d-flex btn-group-justified"
               role="group"
               aria-label="..."
-            >
-              <button type="button" className={"btn btn-dark w-100"}>
-                {" Edit "}
+              >
+              <button
+                type="button"
+                className={"btn w-100 " + activeButtons.leftButtonColor}
+                onClick={leftButtonHandler}
+              >
+                {activeButtons.leftButtonVal}
               </button>
-              <button type="button" className={"btn btn-danger w-100"}>
-                {"Delete"}
-              </button>
-              <button type="button" className={"btn btn-info w-100"}>
-                {"Add Logo"}
+              <button
+                type="button"
+                className={"btn w-100 " + activeButtons.rightButtonColor}
+                onClick={rightButtonHandler}
+              >
+                {activeButtons.rightButtonVal}
               </button>
             </div>
           </div>

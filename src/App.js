@@ -3,8 +3,12 @@ import Header from "./components/header/";
 import BookmarkList from "./components/bookmarkList/";
 import FilterControls from "./components/filterControls/";
 import BookmarkForm from "./components/bookmarkForm/";
+import api from "./dataStore/stubAPI"; // NEW
 
 class App extends Component {
+  state = { search: "", visits: "all" };
+
+
   render() {
     const sample = {
       title: 'Google',
@@ -13,11 +17,11 @@ class App extends Component {
       picture: {thumbnail: './sample.png'}
   };
 
-    const bookmarks = [sample, sample, sample, sample, sample];
+  let bookmarks = api.getAll();
 
     return (
       <div className="jumbotron">
-        <Header noBookmarks={10} />
+        <Header noBookmarks={bookmarks.length} />
         <BookmarkForm />
         <FilterControls />
         <BookmarkList bookmarks={bookmarks} />
