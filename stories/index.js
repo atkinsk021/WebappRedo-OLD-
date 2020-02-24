@@ -9,22 +9,48 @@ import BookmarkForm from '../src/components/bookmarkForm/';
 import { action } from '@storybook/addon-actions';
 
 
-const sample = {
-    title: 'Google',
-    link: 'www.google.com',
-    visits: '112',
-    picture: {thumbnail: './sample.png'}
-}
+const samples = [
+    {
+      title: 'Google',
+      link: 'www.google.com',
+      visits: '112',
+      picture: {thumbnail: './sample.png'}
+    },
+    {
+      title: 'Twitter',
+      link: 'www.google.com',
+      visits: '12',
+      picture: {thumbnail: './sample.png'}
+    },
+    {
+      title: 'Youtube',
+      link: 'www.youtube.com',
+      visits: '1',
+      picture: {thumbnail: './sample.png'}
+    },
+    {
+      title: 'dsfsdfsdfsdfsdf',
+      link: 'www.sdfkjnsdf.com',
+      visits: '43',
+      picture: {thumbnail: './sample.png'}
+    },
+    {
+      title: 'Twitch',
+      link: 'www.twitch.com',
+      visits: '6',
+      picture: {thumbnail: './sample.png'}
+    }
+  ];
 
 storiesOf("Bookmark Vault/Bookmark Form", module).add("default", () => <BookmarkForm />);
 
 storiesOf("Bookmark Vault/Bookmark List", module).add("default", () => { 
-    const samples = [sample, sample, sample, sample, sample]
+    //const samples = [sample, sample, sample, sample, sample]
     return <BookmarkList bookmarks={samples}/>
 });
 
 storiesOf("Bookmark Vault/Bookmark", module).add("default", () => ( 
-  <Bookmark bookmark={sample} deleteHandler={action('Delete confirmed') }/>
+  <Bookmark bookmark={samples} deleteHandler={action('Delete confirmed') }/>
 ));      
 
 storiesOf("Bookmark Vault/Header", module).add("default", () => (

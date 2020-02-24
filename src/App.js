@@ -9,6 +9,11 @@ import _ from "lodash";
 class App extends Component {
   state = { search: "", visits: "all" };
 
+  addBookmarkItem = (title, link) => {
+    api.add(title, link);
+    this.setState({});
+  };
+
   handleChange = (type, value) => {
     type === "title"
     ? this.setState({ search: value })
@@ -21,12 +26,6 @@ class App extends Component {
   };
 
   render() {
-    const sample = {
-      title: 'Google',
-      link: 'www.google.com',
-      visits: '112',
-      picture: {thumbnail: './sample.png'}
-  };
 
   let bookmarks = api.getAll();
   let filteredBookmarks = bookmarks.filter(b => {
@@ -44,7 +43,7 @@ class App extends Component {
     return (
       <div className="jumbotron">
         <Header noBookmarks={sortedBookmarks.length} />
-        <BookmarkForm />
+        <BookmarkForm handleAdd={this.addBookmarkItem} />
         <FilterControls 
           onUserInput={this.handleChange}
         />

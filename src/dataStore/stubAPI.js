@@ -2,7 +2,58 @@ import _ from "lodash";
 
 class StubAPI {
     constructor() {
-        this.bookmarks = [];
+        this.bookmarks = [
+            {
+              id: 1,
+              title: 'Google',
+              link: 'www.google.com',
+              visits: '112',
+              picture: {thumbnail: './sample.png'}
+            },
+            {
+              id: 2,    
+              title: 'Twitter',
+              link: 'www.google.com',
+              visits: '12',
+              picture: {thumbnail: './sample.png'}
+            },
+            {
+              id: 3,    
+              title: 'Youtube',
+              link: 'www.youtube.com',
+              visits: '1',
+              picture: {thumbnail: './sample.png'}
+            },
+            {
+              id: 4,
+              title: 'dsfsdfsdfsdfsdf',
+              link: 'www.sdfkjnsdf.com',
+              visits: '43',
+              picture: {thumbnail: './sample.png'}
+            },
+            {
+              id: 5,
+              title: 'Twitch',
+              link: 'www.twitch.com',
+              visits: '6',
+              picture: {thumbnail: './sample.png'}
+            }
+          ];
+    }
+    add(title, link) {
+        let id = 1;
+        let last = _.last(this.bookmarks);
+        if (last) {
+        id = last.id + 1;
+        }
+        let len = this.bookmarks.length;
+        let newLen = this.bookmarks.push({
+        title,
+        link,
+        visits: '0',
+        picture: {thumbnail: './sample.png'}
+        });
+        return newLen > len;
     }
 
     find(id) {
