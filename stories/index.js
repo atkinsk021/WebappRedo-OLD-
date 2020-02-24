@@ -5,6 +5,8 @@ import Header from '../src/components/header/'
 import FilterControls from '../src/components/filterControls/'
 import Bookmark from '../src/components/bookmark/'
 import BookmarkList from '../src/components/bookmarkList/'
+import BookmarkForm from '../src/components/bookmarkForm/';
+
 
 const sample = {
     title: 'Google',
@@ -12,6 +14,8 @@ const sample = {
     visits: '112',
     picture: {thumbnail: './sample.png'}
 }
+
+storiesOf("Bookmark Vault/Bookmark Form", module).add("default", () => <BookmarkForm />);
 
 storiesOf("Bookmark Vault/Bookmark List", module).add("default", () => { 
     const samples = [sample, sample, sample, sample, sample]
