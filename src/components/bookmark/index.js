@@ -19,6 +19,7 @@ class Bookmark extends Component {
         link: this.props.bookmark.link
         }
     };
+
     handleEdit = () => this.setState({ status: "edit" });
     handleSave = e => {
         e.preventDefault();
@@ -40,7 +41,7 @@ class Bookmark extends Component {
     handleDelete = () =>  this.setState({ status : 'del'} );
     handleConfirm = (e) => {
     e.preventDefault();
-    this.props.deleteHandler(this.state.link);
+    this.props.deleteHandler(this.props.bookmark.link);
     };
 
   render() {
@@ -60,39 +61,35 @@ class Bookmark extends Component {
     return (
       <div className="col-sm-3">
         <div className="card">
-          <img
-            className="card-img-tag center "
-            alt={this.props.bookmark.title}
-            //src={this.props.bookmark.picture.thumbnail}
-          />
           <div className="card-body">
             <h2 className="card-title">
                 <FontAwesomeIcon icon={["fas", "bookmark"]} />  
             </h2>
-            <h2 className="card-title">
-            <span> {this.props.bookmark.title}</span>
-            </h2>
+            
             {this.state.status === "edit" ? (
               <Fragment>
                 <p>
                   <input
                     type="text"
                     className="form-control"
-                    value={this.state.email}
-                    onChange={this.handleEmailChange}
+                    value={this.state.title}
+                    onChange={this.handleTitleChange}
                   />
                 </p>
                 <p>
                   <input
                     type="text"
                     className="form-control"
-                    value={this.state.phone}
-                    onChange={this.handlePhoneChange}
+                    value={this.state.link}
+                    onChange={this.handleLinkChange}
                   />
                 </p>
               </Fragment>
             ) : (
             <Fragment>
+                <h2 className="card-title">
+            <span> {this.props.bookmark.title}</span>
+            </h2>
             <p className="card-link" key="link">
               <FontAwesomeIcon icon={["fas", "angle-right"]} />
               <span> {this.props.bookmark.link}</span>

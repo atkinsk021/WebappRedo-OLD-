@@ -20,8 +20,8 @@ class App extends Component {
     : this.setState({ sort: value });
 };
 
-  deleteBookmark = (key) => {
-    api.delete(key); 
+  deleteBookmark = (id) => {
+    api.delete(id); 
     this.setState({});                          
   };
 

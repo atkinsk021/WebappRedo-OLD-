@@ -13,7 +13,7 @@ class StubAPI {
             {
               id: 2,    
               title: 'Twitter',
-              link: 'www.google.com',
+              link: 'www.twitter.com',
               visits: '12',
               //picture: {thumbnail: './sample.png'}
             },
@@ -82,7 +82,7 @@ class StubAPI {
     }
 
     update(key, title, link) {
-        let index = _.findIndex(this.contacts, contact => contact.phone === key);
+        let index = _.findIndex(this.bookmarks, bookmark => bookmark.link === key);
         if (index !== -1) {
         this.bookmarks[index].title = title;
         this.bookmarks[index].link = link;
