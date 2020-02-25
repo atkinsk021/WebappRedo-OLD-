@@ -4,11 +4,12 @@ import './bookmarkList.css';
 
 export default class BookmarkList extends Component {
   render() {
-    const bookmarkCards = this.props.bookmarks.map(b => (
-      <Bookmark key={b.link} 
-      bookmark={b} 
+    let bookmarkCards = this.props.bookmarks.map(
+    (bookmark,index) =>
+    <Bookmark key={index}
+      bookmark={bookmark} 
       deleteHandler={this.props.deleteHandler}/>
-    ));
+    );
     return (
       <div className="container-fluid bookmarks">
         <div className="row">{bookmarkCards}</div>

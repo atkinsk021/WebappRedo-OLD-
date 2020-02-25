@@ -3,7 +3,7 @@ import Header from "./components/header/";
 import BookmarkList from "./components/bookmarkList/";
 import FilterControls from "./components/filterControls/";
 import BookmarkForm from "./components/bookmarkForm/";
-import api from "./dataStore/stubAPI"; // NEW
+import api from "./dataStore/stubAPI";
 import _ from "lodash";
 
 class App extends Component {

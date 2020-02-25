@@ -8,35 +8,35 @@ class StubAPI {
               title: 'Google',
               link: 'www.google.com',
               visits: '112',
-              picture: {thumbnail: './sample.png'}
+              //picture: {thumbnail: './sample.png'}
             },
             {
               id: 2,    
               title: 'Twitter',
               link: 'www.google.com',
               visits: '12',
-              picture: {thumbnail: './sample.png'}
+              //picture: {thumbnail: './sample.png'}
             },
             {
               id: 3,    
               title: 'Youtube',
               link: 'www.youtube.com',
               visits: '1',
-              picture: {thumbnail: './sample.png'}
+              //picture: {thumbnail: './sample.png'}
             },
             {
               id: 4,
               title: 'dsfsdfsdfsdfsdf',
               link: 'www.sdfkjnsdf.com',
               visits: '43',
-              picture: {thumbnail: './sample.png'}
+              //picture: {thumbnail: './sample.png'}
             },
             {
               id: 5,
               title: 'Twitch',
               link: 'www.twitch.com',
               visits: '6',
-              picture: {thumbnail: './sample.png'}
+              //picture: {thumbnail: './sample.png'}
             }
           ];
     }
@@ -48,10 +48,11 @@ class StubAPI {
         }
         let len = this.bookmarks.length;
         let newLen = this.bookmarks.push({
+        id,
         title,
         link,
         visits: '0',
-        picture: {thumbnail: './sample.png'}
+        //picture: {thumbnail: './sample.png'}
         });
         return newLen > len;
     }

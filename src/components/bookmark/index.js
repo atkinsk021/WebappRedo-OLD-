@@ -8,9 +8,13 @@ import api from '../../dataStore/stubAPI'
 class Bookmark extends Component {
     state = {
         status: "",
+        id: this.props.bookmark.id,
+        //picture: this.props.bookmark.picture.thumbnail,
         title: this.props.bookmark.title,
         link: this.props.bookmark.link,
         previousDetails: {
+        id: this.props.bookmark.id,
+        //picture: this.props.bookmark.picture.thumbnail,
         title: this.props.bookmark.title,
         link: this.props.bookmark.link
         }
@@ -43,14 +47,11 @@ class Bookmark extends Component {
     let activeButtons = buttons.normal;
     let leftButtonHandler = this.handleEdit;
     let rightButtonHandler = this.handleDelete;
-    let cardColor = "bg-white";
     if (this.state.status === "edit") {
-      cardColor = "bg-primary";
       activeButtons = buttons.edit;
       leftButtonHandler = this.handleSave;
       rightButtonHandler = this.handleCancel;
     } else if (this.state.status === 'del' ) {
-        cardColor = "bg-warning";
         activeButtons = buttons.delete;
         leftButtonHandler = this.handleCancel;
         rightButtonHandler = this.handleConfirm;
@@ -62,11 +63,13 @@ class Bookmark extends Component {
           <img
             className="card-img-tag center "
             alt={this.props.bookmark.title}
-            src={this.props.bookmark.picture.thumbnail}
+            //src={this.props.bookmark.picture.thumbnail}
           />
           <div className="card-body">
             <h2 className="card-title">
-            <FontAwesomeIcon icon={["fas", "bookmark"]} />  
+                <FontAwesomeIcon icon={["fas", "bookmark"]} />  
+            </h2>
+            <h2 className="card-title">
             <span> {this.props.bookmark.title}</span>
             </h2>
             {this.state.status === "edit" ? (
