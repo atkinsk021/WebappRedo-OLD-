@@ -74,6 +74,7 @@ class Bookmark extends Component {
                     className="form-control"
                     value={this.state.title}
                     onChange={this.handleTitleChange}
+                    required
                   />
                 </p>
                 <p>
@@ -82,6 +83,7 @@ class Bookmark extends Component {
                     className="form-control"
                     value={this.state.link}
                     onChange={this.handleLinkChange}
+                    required
                   />
                 </p>
               </Fragment>

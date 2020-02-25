@@ -28,7 +28,7 @@ export default class FilterControls extends Component {
               <span> Sort: </span>
               <select id="sort"
               onChange={this.handleSortChange}
-              >>
+              >
                 <option value="all">All</option>
                 <option value="ascending">Most Visits First</option>
                 <option value="descending">Least Visits First</option>
