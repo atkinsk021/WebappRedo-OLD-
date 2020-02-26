@@ -4,6 +4,8 @@ import "../../fontawesome";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import buttons from "../../config/buttonsConfig";
 import api from '../../dataStore/stubAPI'
+import {Link, BrowserRouter} from 'react-router-dom';
+import Linkify from 'react-linkify';
 
 class Bookmark extends Component {
     state = {
@@ -94,7 +96,7 @@ class Bookmark extends Component {
             </h2>
             <p className="card-link" key="link">
               <FontAwesomeIcon icon={["fas", "angle-right"]} />
-              <span> {this.props.bookmark.link}</span>
+              <span> <Linkify>{this.props.bookmark.link} </Linkify> </span>
             </p>
             <h5 className="card-visits" key="visits">
               <FontAwesomeIcon icon={["fas", "eye"]} />
@@ -131,4 +133,6 @@ class Bookmark extends Component {
   }
 }
 
+
+//<button type="button" className="btn btn-info">{this.props.bookmark.link}</button> 
 export default Bookmark;

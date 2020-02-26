@@ -5,6 +5,8 @@ import FilterControls from "./components/filterControls/";
 import BookmarkForm from "./components/bookmarkForm/";
 import api from "./dataStore/stubAPI";
 import _ from "lodash";
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+import About from "./components/pages/About";
 
 class App extends Component {
   state = { search: "", visits: "all" };
@@ -36,20 +38,28 @@ class App extends Component {
   this.state.sort === "all"
       ? filteredBookmarks
       : filteredBookmarks.filter(b => b.sort === this.state.sort);
-  let sortedBookmarks = _.sortBy(filteredBookmarks, b => b.title);
+  //let sortedBookmarks = _.sortBy(filteredBookmarks, b => b.title);
 
 
 
     return (
+      <Router>
       <div className="jumbotron">
-        <Header noBookmarks={sortedBookmarks.length} />
-        <BookmarkForm handleAdd={this.addBookmarkItem} />
-        <FilterControls 
-          onUserInput={this.handleChange}
-        />
-        <BookmarkList bookmarks={sortedBookmarks} 
-          deleteHandler={this.deleteBookmark} />
+        <Header noBookmarks={filteredBookmarks.length} />
+        <Route exact path="/" render= {props => (
+          <React.Fragment>
+              <BookmarkForm handleAdd={this.addBookmarkItem} />
+              <FilterControls 
+                onUserInput={this.handleChange}
+              />
+              <BookmarkList bookmarks={filteredBookmarks} 
+                deleteHandler={this.deleteBookmark} />
+          </React.Fragment>
+        )} />
+        <Route path="/about" component={About} />
+        
       </div>
+      </Router>
     );
   }
 }

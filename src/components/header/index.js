@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from 'react-router-dom';
 
 class Header extends Component {
   render() {
@@ -10,6 +11,7 @@ class Header extends Component {
               <h1>
                 Bookmark Vault <span className="badge badge-pill badge-success">{this.props.noContacts}</span>
               </h1>
+              <Link to="/">Vault</Link> | <Link to="/about">About</Link>
             </div>
           </div>
         </div>

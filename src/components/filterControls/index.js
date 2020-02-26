@@ -10,9 +10,9 @@ export default class FilterControls extends Component {
     handleTextChange = e => {
         this.handleChange(e, "title", e.target.value);
     };
-    handleSortChange = e => {
+    /*handleSortChange = e => {
         this.handleChange(e, "sort", e.target.value);
-    };
+    };*/
 
     render() {
     return (
@@ -25,14 +25,6 @@ export default class FilterControls extends Component {
               placeholder="Bookmark Search" 
               onChange={this.handleTextChange}
               />
-              <span> Sort: </span>
-              <select id="sort"
-              onChange={this.handleSortChange}
-              >
-                <option value="all">All</option>
-                <option value="ascending">Most Visits First</option>
-                <option value="descending">Least Visits First</option>
-              </select>
             </h4>
           </div>
         </div>
@@ -40,3 +32,13 @@ export default class FilterControls extends Component {
     );
   }
 }
+
+
+/*<span> Sort: </span>
+<select id="sort"
+onChange={this.handleSortChange}
+>
+  <option value="all">All</option>
+  <option value="ascending">Most Visits First</option>
+  <option value="descending">Least Visits First</option>
+</select>*/
