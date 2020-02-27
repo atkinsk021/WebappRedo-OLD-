@@ -85,6 +85,7 @@ links. Labs and online tutorials were used to implement CRUD features.
 ## ----------------------------Bugs-----------------------------
 
 Currently I know of two bugs:
+
     1)  Due to how the Header handles Links, Storybook is throwing an error 
         on the Header page, because the <Link> is used outside of a Router.
         If I DO put a <Router> around said link, I get an even worse bug
@@ -92,6 +93,7 @@ Currently I know of two bugs:
         no change in the page that is being dislayed. I took the lesser of 
         two errors here but hopefully may fix it in time. As of now, the 
         Header component of Storybook is bugged but the rest is fine.
+
     2)  If you search for a Bookmark and then edit it while still inside the
         filter, the wrong Bookmark will be edited. Deleting while inside the
         filter still works fine.
