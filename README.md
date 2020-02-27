@@ -23,12 +23,15 @@ were needed were later installed in the same fashion.
 ## --------------------------UI Design--------------------------
 
 MAIN PAGE
+
 ![main](main.png)
 
 ABOUT PAGE
+
 ![about](about.png)
 
 EDIT UI
+
 ![editing](editing.png)
 
 
