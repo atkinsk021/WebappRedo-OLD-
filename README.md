@@ -92,16 +92,11 @@ Currently I know of two bugs:
         no change in the page that is being dislayed. I took the lesser of 
         two errors here but hopefully may fix it in time. As of now, the 
         Header component of Storybook is bugged but the rest is fine.
-
     2)  If you search for a Bookmark and then edit it while still inside the
         filter, the wrong Bookmark will be edited. Deleting while inside the
         filter still works fine.
 
-(main): .//img/main.png
-(about): .//img/about.png
-(storybook): .//img/storybook.png
-(datamodel): .//img/datamodel.png
-(editing): .//img/editing.png
+
 
 
 
