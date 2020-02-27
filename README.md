@@ -79,7 +79,8 @@ About       -   Displays a simple About page for the application.
 
 ## ---------------------Independant Learning--------------------
 
-Used React Bootstrap to style the page. Labs and online tutorials were used to implement CRUD features. 
+Used React Bootstrap to style the page.Linkify was used to create the clickable 
+links. Labs and online tutorials were used to implement CRUD features. 
 
 ## ----------------------------Bugs-----------------------------
 
