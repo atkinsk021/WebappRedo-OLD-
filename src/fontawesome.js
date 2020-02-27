@@ -1,9 +1,8 @@
 import { library } from "@fortawesome/fontawesome-svg-core";
-import { faEnvelope, faPhone, faBookmark, faEye, faEdit, faTrash, faAngleRight } from "@fortawesome/free-solid-svg-icons";
+import { faBookmark, faEye, faEdit, faTrash, faAngleRight } from "@fortawesome/free-solid-svg-icons";
 
+//Font Awesome Imports
 library.add(
-  faEnvelope, 
-  faPhone,
   faBookmark,
   faEdit,
   faTrash,

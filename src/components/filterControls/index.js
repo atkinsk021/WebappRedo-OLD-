@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "./filterControls.css"
 
+//Class for the Search bar
 export default class FilterControls extends Component {
   
     handleChange = (e, type, value) => {
@@ -10,35 +11,23 @@ export default class FilterControls extends Component {
     handleTextChange = e => {
         this.handleChange(e, "title", e.target.value);
     };
-    /*handleSortChange = e => {
-        this.handleChange(e, "sort", e.target.value);
-    };*/
 
     render() {
     return (
-      <div className="container-fluid">
         <div className="searchBg">
-          <div className="col-md-12">
-            <h4>
-              <span>Search </span>
-              <input type="text" 
-              placeholder="Bookmark Search" 
-              onChange={this.handleTextChange}
-              />
-            </h4>
-          </div>
+            <h5>
+                <span >
+                    Search 
+                </span>
+                <input 
+                className= "container-fluid"
+                type="text" 
+                placeholder=". . ." 
+                onChange={this.handleTextChange}
+                />
+            </h5>
         </div>
-      </div>
     );
   }
 }
 
-
-/*<span> Sort: </span>
-<select id="sort"
-onChange={this.handleSortChange}
->
-  <option value="all">All</option>
-  <option value="ascending">Most Visits First</option>
-  <option value="descending">Least Visits First</option>
-</select>*/

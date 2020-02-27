@@ -1,5 +1,6 @@
 import _ from "lodash";
 
+//Datastub to represent mock data for application
 class StubAPI {
     constructor() {
         this.bookmarks = [
@@ -8,38 +9,34 @@ class StubAPI {
               title: 'Google',
               link: 'www.google.com',
               visits: '112',
-              //picture: {thumbnail: './sample.png'}
             },
             {
               id: 2,    
               title: 'Twitter',
               link: 'www.twitter.com',
               visits: '12',
-              //picture: {thumbnail: './sample.png'}
             },
             {
               id: 3,    
               title: 'Youtube',
               link: 'www.youtube.com',
               visits: '1',
-              //picture: {thumbnail: './sample.png'}
             },
             {
               id: 4,
               title: 'dsfsdfsdfsdfsdf',
               link: 'www.sdfkjnsdf.com',
               visits: '43',
-              //picture: {thumbnail: './sample.png'}
             },
             {
               id: 5,
               title: 'Twitch',
               link: 'www.twitch.com',
               visits: '6',
-              //picture: {thumbnail: './sample.png'}
             }
-          ];
+        ];
     }
+
     add(title, link) {
         let id = 1;
         let last = _.last(this.bookmarks);
@@ -52,9 +49,17 @@ class StubAPI {
         title,
         link,
         visits: '0',
-        //picture: {thumbnail: './sample.png'}
         });
         return newLen > len;
+    }
+
+    visit(id) {
+        let index = _.findIndex(this.bookmarks, bookmark => bookmark.id === id);
+        if (index !== -1) {
+        this.bookmarks[index].visits ++;
+        return true;
+        }
+        return false;
     }
 
     find(id) {

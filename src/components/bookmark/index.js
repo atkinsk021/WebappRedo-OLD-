@@ -4,56 +4,57 @@ import "../../fontawesome";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import buttons from "../../config/buttonsConfig";
 import api from '../../dataStore/stubAPI'
-import {Link, BrowserRouter} from 'react-router-dom';
 import Linkify from 'react-linkify';
 
+//Class for an individual Bookmark
 class Bookmark extends Component {
     state = {
         status: "",
         id: this.props.bookmark.id,
-        //picture: this.props.bookmark.picture.thumbnail,
         title: this.props.bookmark.title,
         link: this.props.bookmark.link,
         previousDetails: {
         id: this.props.bookmark.id,
-        //picture: this.props.bookmark.picture.thumbnail,
         title: this.props.bookmark.title,
         link: this.props.bookmark.link
         }
     };
 
+    //Handlers
     handleEdit = () => this.setState({ status: "edit" });
     handleSave = e => {
         e.preventDefault();
         let updatedTitle = this.state.title.trim();
         let updatedLink = this.state.link.trim();
         if (!updatedTitle || !updatedLink) {
-        return;
+            return;
         }
         let { title, link } = this.state;
         this.setState({ status: "", previousDetails: { title, link } });
         api.update(this.state.previousDetails.link, updatedTitle, updatedLink);
     };                            
     handleCancel = () => {
-      let { title, link } = this.state.previousDetails;
-      this.setState({ status: "", title, link });
+        let { title, link } = this.state.previousDetails;
+        this.setState({ status: "", title, link });
     };
     handleTitleChange = e => this.setState({ title: e.target.value });
     handleLinkChange = e => this.setState({ link: e.target.value });
     handleDelete = () =>  this.setState({ status : 'del'} );
     handleConfirm = (e) => {
-    e.preventDefault();
-    this.props.deleteHandler(this.props.bookmark.link);
+        e.preventDefault();
+        this.props.deleteHandler(this.props.bookmark.link);
     };
+    handleVisit = () => this.props.visitHandler(this.props.bookmark.id);
 
   render() {
+    //Button configs
     let activeButtons = buttons.normal;
     let leftButtonHandler = this.handleEdit;
     let rightButtonHandler = this.handleDelete;
     if (this.state.status === "edit") {
-      activeButtons = buttons.edit;
-      leftButtonHandler = this.handleSave;
-      rightButtonHandler = this.handleCancel;
+        activeButtons = buttons.edit;
+        leftButtonHandler = this.handleSave;
+        rightButtonHandler = this.handleCancel;
     } else if (this.state.status === 'del' ) {
         activeButtons = buttons.delete;
         leftButtonHandler = this.handleCancel;
@@ -61,7 +62,7 @@ class Bookmark extends Component {
     }
 
     return (
-      <div className="col-sm-3">
+      <div className="col-sm-12">
         <div className="card">
           <div className="card-body">
             <h2 className="card-title">
@@ -79,6 +80,7 @@ class Bookmark extends Component {
                     required
                   />
                 </p>
+
                 <p>
                   <input
                     type="text"
@@ -88,22 +90,24 @@ class Bookmark extends Component {
                     required
                   />
                 </p>
-              </Fragment>
+
+            </Fragment>
             ) : (
             <Fragment>
-                <h2 className="card-title">
-            <span> {this.props.bookmark.title}</span>
+            <h2 className="card-title">
+                <span> {this.props.bookmark.title}</span>
             </h2>
-            <p className="card-link" key="link">
+            <p className="card-link" key="link" >
               <FontAwesomeIcon icon={["fas", "angle-right"]} />
-              <span> <Linkify>{this.props.bookmark.link} </Linkify> </span>
+              <span onClick= {this.handleVisit} > <Linkify >{this.props.bookmark.link} </Linkify> </span>
             </p>
             <h5 className="card-visits" key="visits">
               <FontAwesomeIcon icon={["fas", "eye"]} />
-              <span> {this.props.bookmark.visits} </span>
+              <span onClick={this.handleVisit}> {this.props.bookmark.visits} </span>
             </h5>
             </Fragment>
             )}
+            
           </div>
           <div className="card-footer">
             <div
@@ -111,7 +115,7 @@ class Bookmark extends Component {
               role="group"
               aria-label="..."
               >
-              <button
+              <button 
                 type="button"
                 className={"btn w-100 " + activeButtons.leftButtonColor}
                 onClick={leftButtonHandler}
@@ -128,11 +132,10 @@ class Bookmark extends Component {
             </div>
           </div>
         </div>
+        <p></p>
       </div>
     );
   }
 }
 
-
-//<button type="button" className="btn btn-info">{this.props.bookmark.link}</button> 
 export default Bookmark;

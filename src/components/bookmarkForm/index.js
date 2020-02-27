@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import './bookmarkForm.css';
 import {FormWithConstraints, Input, FieldFeedbacks, FieldFeedback} from 'react-form-with-constraints';
+import Button from 'react-bootstrap/Button';
 
-
+//Class for the form to create new bookmarks on the right side of the page
 export default class BookmarkForm extends Component {
     state = {title:'' , link:''};
-
 
     handleSubmit = (e) => {
         e.preventDefault();
@@ -17,8 +17,8 @@ export default class BookmarkForm extends Component {
 
     render() {
         return (
-        <FormWithConstraints className="form bg-dark text-light">
-            <h3>Add a new Bookmark</h3>
+        <FormWithConstraints className="form1">
+            <h3 className="formText" >Add a new Bookmark</h3>
             <div className="form-group">
               <Input 
                 id="Title"
@@ -38,13 +38,13 @@ export default class BookmarkForm extends Component {
               <Input 
                 className="form-control"
                 placeholder="Link"
-                value={this.state.link}
+                value= {this.state.link}
                 onChange={ this.handleLinkChange } 
                 minLength={3}
                 required/>
             </div>
-            <button type="submit" className="btn btn-primary"
-            onClick={this.handleSubmit}>Create</button>
+            <Button block type="submit" className="btn btn-dark"
+            onClick={this.handleSubmit}>Create</Button>
         </FormWithConstraints>
         );
     }

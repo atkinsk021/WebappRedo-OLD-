@@ -1,21 +1,22 @@
+//Button configs for edit, normal and delete modes
 const buttons = {
     normal: {
         leftButtonVal: "Edit",
         rightButtonVal: "Delete",
-        leftButtonColor: "btn-default",
+        leftButtonColor: "btn-dark",
         rightButtonColor: "btn-danger"
     },
     delete: {
         leftButtonVal: "Cancel",
         rightButtonVal: "Confirm",
-        leftButtonColor: "btn-light",
+        leftButtonColor: "btn-dark",
         rightButtonColor: "btn-danger"
     },
     edit: {
         leftButtonVal: "Save",
         rightButtonVal: "Cancel",
-        leftButtonColor: "btn-danger",
-        rightButtonColor: "btn-light"
+        leftButtonColor: "btn-success",
+        rightButtonColor: "btn-danger"
     }
 };
 export default buttons;

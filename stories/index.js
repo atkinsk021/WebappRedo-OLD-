@@ -8,7 +8,7 @@ import BookmarkList from '../src/components/bookmarkList/'
 import BookmarkForm from '../src/components/bookmarkForm/';
 import { action } from '@storybook/addon-actions';
 
-
+//Mock data for storybook
 const samples = [
     {
       title: 'Google',
@@ -17,7 +17,7 @@ const samples = [
     },
     {
       title: 'Twitter',
-      link: 'www.google.com',
+      link: 'www.twitter.com',
       visits: '12',
     },
     {
@@ -26,8 +26,8 @@ const samples = [
       visits: '1',
     },
     {
-      title: 'dsfsdfsdfsdfsdf',
-      link: 'www.sdfkjnsdf.com',
+      title: 'Amazon',
+      link: 'www.amazon.co.uk',
       visits: '43',
     },
     {
@@ -35,12 +35,12 @@ const samples = [
       link: 'www.twitch.com',
       visits: '6',
     }
-  ];
+];
 
+//stories for storybook to represent parts of the application
 storiesOf("Bookmark Vault/Bookmark Form", module).add("default", () => <BookmarkForm />);
 
 storiesOf("Bookmark Vault/Bookmark List", module).add("default", () => { 
-    //const samples = [sample, sample, sample, sample, sample]
     return <BookmarkList bookmarks={samples}/>
 });
 
@@ -49,7 +49,7 @@ storiesOf("Bookmark Vault/Bookmark", module).add("default", () => (
 ));      
 
 storiesOf("Bookmark Vault/Header", module).add("default", () => (
-  <Header noContacts={5} />
+  <Header />
 ));     
 
 storiesOf("Bookmark Vault/Filter Controls", module).add("default", () => (
