@@ -37,7 +37,22 @@
   "devDependencies": {
     "@storybook/addon-actions": "^5.2.1",
     "@storybook/react": "^5.2.1",
+    "babel-cli": "^6.26.0",
     "babel-loader": "^8.0.6",
-    "cypress": "^3.1.5"
-  }
+    "babel-preset-env": "^1.7.0",
+    "cypress": "^3.1.5",
+    "nodemon": "^2.0.2"
+  },
+  "description": "Bookmark Vault is an easy to use storage for user created Bookmarks. \r You can create, edit and delete your own Bookmarks. Bookmarks can be \r searched using the Search bar on the right side of the page. The link\r of each Bookmark can be clicked and the page will increase the number\r of visits a link has. The Header at the top of the page can be used to\r navigate between the main page and an About page, which gives some small\r information about the application.",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/atkinsk021/WebappRedo.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/atkinsk021/WebappRedo/issues"
+  },
+  "homepage": "https://github.com/atkinsk021/WebappRedo#readme"
 }
