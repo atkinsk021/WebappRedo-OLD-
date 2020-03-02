@@ -6,7 +6,10 @@
     "@fortawesome/fontawesome-svg-core": "^1.2.17",
     "@fortawesome/free-solid-svg-icons": "^5.8.1",
     "@fortawesome/react-fontawesome": "^0.1.4",
+    "body-parser": "^1.19.0",
     "bootstrap": "^4.4.1",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
     "lodash": "^4.17.15",
     "react": "^16.8.0",
     "react-bootstrap": "^1.0.0-beta.16",
@@ -20,7 +23,7 @@
     "superagent": "^5.0.3"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "nodemon --exec babel-node index.js",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
@@ -38,9 +41,12 @@
     "@storybook/addon-actions": "^5.2.1",
     "@storybook/react": "^5.2.1",
     "babel-cli": "^6.26.0",
+    "babel-eslint": "^10.1.0",
     "babel-loader": "^8.0.6",
     "babel-preset-env": "^1.7.0",
     "cypress": "^3.1.5",
+    "eslint": "^6.8.0",
+    "eslint-plugin-react": "^7.18.3",
     "nodemon": "^2.0.2"
   },
   "description": "Bookmark Vault is an easy to use storage for user created Bookmarks. \r You can create, edit and delete your own Bookmarks. Bookmarks can be \r searched using the Search bar on the right side of the page. The link\r of each Bookmark can be clicked and the page will increase the number\r of visits a link has. The Header at the top of the page can be used to\r navigate between the main page and an About page, which gives some small\r information about the application.",
