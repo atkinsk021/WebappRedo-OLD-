@@ -1,0 +1,63 @@
+{
+  "name": "bookmarkvault",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.17",
+    "@fortawesome/free-solid-svg-icons": "^5.8.1",
+    "@fortawesome/react-fontawesome": "^0.1.4",
+    "body-parser": "^1.19.0",
+    "bootstrap": "^4.4.1",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "lodash": "^4.17.15",
+    "react": "^16.8.0",
+    "react-bootstrap": "^1.0.0-beta.16",
+    "react-dom": "^16.8.0",
+    "react-form-with-constraints": "^0.14.0",
+    "react-google-maps": "^9.4.5",
+    "react-linkify": "^1.0.0-alpha",
+    "react-router-dom": "^4.3.1",
+    "react-router-hash-link": "^1.2.2",
+    "react-scripts": "3.1.2",
+    "superagent": "^5.0.3"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ],
+  "devDependencies": {
+    "@storybook/addon-actions": "^5.2.1",
+    "@storybook/react": "^5.2.1",
+    "babel-cli": "^6.26.0",
+    "babel-loader": "^8.0.6",
+    "babel-preset-env": "^1.7.0",
+    "cypress": "^3.1.5",
+    "eslint": "^6.8.0",
+    "eslint-plugin-react": "^7.18.3",
+    "nodemon": "^2.0.2"
+  },
+  "description": "Bookmark Vault is an easy to use storage for user created Bookmarks. \r You can create, edit and delete your own Bookmarks. Bookmarks can be \r searched using the Search bar on the right side of the page. The link\r of each Bookmark can be clicked and the page will increase the number\r of visits a link has. The Header at the top of the page can be used to\r navigate between the main page and an About page, which gives some small\r information about the application.",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/atkinsk021/WebappRedo.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/atkinsk021/WebappRedo/issues"
+  },
+  "homepage": "https://github.com/atkinsk021/WebappRedo#readme"
+}
