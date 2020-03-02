@@ -10,12 +10,21 @@ router.get('/', (req, res) => {
 //creating bookmark
 router.post('/', (req, res) => {
         let newBookmark = req.body;
-        if (newBookmark){
+        if (newBookmark){   //possible error??? lab2 02
           bookmarks.push({title : newBookmark.title, link: newBookmark.link }) ;
           res.status(201).send({message: "Bookmark Created"});
       }else{
             res.status(400).send({message: "Unable to find Bookmark in request. No Bookmark Found in body"});
       }
+});
+
+// visit a bookmark
+router.bookmark('/:id/visit', (req, res) => {
+  const id = req.params.id;
+         if (stubAPI.visit(id)) {
+              return res.status(200).send({message: `bookmark ${id} visited`});
+         }
+         return res.status(404).send({message: `Unable to find bookmark ${id}`});
 });
 
 // Update bookmark
